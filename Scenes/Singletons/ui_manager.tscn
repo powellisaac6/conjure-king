@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7txxbjufe8lo"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/ui_manager.gd" id="1_cqafk"]
+[ext_resource type="Texture2D" uid="uid://b20pndg5t1hpb" path="res://UI/Weapon/weapon-select.png" id="2_urqwv"]
+[ext_resource type="FontFile" uid="uid://q1nois6qs8ic" path="res://UI/Fonts/VCR_OSD_MONO_1.001.ttf" id="3_du3hh"]
+[ext_resource type="Texture2D" uid="uid://b37osj0bnrlvy" path="res://UI/Weapon/weapon-items.png" id="3_xwa1y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_db4h1"]
+font = ExtResource("3_du3hh")
+font_size = 32
+
+[node name="UIManager" type="CanvasLayer"]
+script = ExtResource("1_cqafk")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Selections" type="Control" parent="UI"]
+visible = false
+anchors_preset = 0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 60.0
+mouse_filter = 2
+
+[node name="Select1" type="Sprite2D" parent="UI/Selections"]
+position = Vector2(112, 96)
+texture = ExtResource("2_urqwv")
+hframes = 2
+
+[node name="Weapon1" type="Sprite2D" parent="UI/Selections"]
+position = Vector2(112, 96)
+texture = ExtResource("3_xwa1y")
+hframes = 3
+
+[node name="Select2" type="Sprite2D" parent="UI/Selections"]
+position = Vector2(160, 96)
+texture = ExtResource("2_urqwv")
+hframes = 2
+
+[node name="Weapon2" type="Sprite2D" parent="UI/Selections"]
+position = Vector2(160, 96)
+texture = ExtResource("3_xwa1y")
+hframes = 3
+frame = 1
+
+[node name="Select3" type="Sprite2D" parent="UI/Selections"]
+position = Vector2(208, 96)
+texture = ExtResource("2_urqwv")
+hframes = 2
+
+[node name="Weapon3" type="Sprite2D" parent="UI/Selections"]
+position = Vector2(208, 96)
+texture = ExtResource("3_xwa1y")
+hframes = 3
+frame = 2
+
+[node name="TimeLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 50.0
+offset_right = 172.0
+offset_bottom = 79.0
+label_settings = SubResource("LabelSettings_db4h1")
+horizontal_alignment = 1

@@ -1,0 +1,86 @@
+[gd_scene load_steps=19 format=3 uid="uid://b4tmsvoq35o8y"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/audio_manager.gd" id="1_arg7r"]
+[ext_resource type="AudioStream" uid="uid://b54m57qqkdu0d" path="res://Audio/Conjure_King_Main_Menu_Track.mp3" id="2_v3str"]
+[ext_resource type="AudioStream" uid="uid://w1t1dfm633qe" path="res://Audio/maintheme.mp3" id="3_f3rg4"]
+[ext_resource type="AudioStream" uid="uid://dtl6h5q3btlr2" path="res://Audio/Player_got_hit_sfx_1_hit_edited.mp3" id="4_d2bnc"]
+[ext_resource type="AudioStream" uid="uid://1v3iucnnovkb" path="res://Audio/Enemy_got_hit_sfx.mp3" id="5_s80ch"]
+[ext_resource type="AudioStream" uid="uid://b6nu5ttspym42" path="res://Audio/Hit_00.mp3" id="6_agh74"]
+[ext_resource type="AudioStream" uid="uid://5s24f4cv1bnm" path="res://Audio/Hit_03.mp3" id="7_7ox5q"]
+[ext_resource type="AudioStream" uid="uid://d2np7386d0a1m" path="res://Audio/Menu_Navigate_02.mp3" id="8_j6tbb"]
+[ext_resource type="AudioStream" uid="uid://dh21dmys684g8" path="res://Audio/Pickup_02.mp3" id="9_83xvp"]
+[ext_resource type="AudioStream" uid="uid://d2v4it6mt73en" path="res://Audio/Player_Death_3.wav" id="10_mwcsd"]
+[ext_resource type="AudioStream" uid="uid://8vpojdqfi1hc" path="res://Audio/Run.wav" id="11_jfx2q"]
+[ext_resource type="AudioStream" uid="uid://cbpk5wl6xoe2s" path="res://Audio/Conjure_King_Explosion_sfx.mp3" id="11_w1mwf"]
+[ext_resource type="AudioStream" uid="uid://dg867bpldokk" path="res://Audio/Kick 002.wav" id="13_wqxrn"]
+[ext_resource type="AudioStream" uid="uid://by6332utx87aw" path="res://Audio/Snare 002.wav" id="14_3fycu"]
+[ext_resource type="AudioStream" uid="uid://73l7lhjw6utu" path="res://Audio/Jump 004.wav" id="15_nt8kd"]
+[ext_resource type="AudioStream" uid="uid://bmpnhdxgf60na" path="res://Audio/AxeThrow.wav" id="16_d5aot"]
+[ext_resource type="AudioStream" uid="uid://bv0v6rxov4hc1" path="res://Audio/teleport.wav" id="17_m2k78"]
+[ext_resource type="AudioStream" uid="uid://cksg21bi6ca6l" path="res://Audio/fireball.wav" id="18_w3q2l"]
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_arg7r")
+
+[node name="MenuTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_v3str")
+volume_db = 10.0
+
+[node name="MainTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f3rg4")
+volume_db = -1.0
+
+[node name="PlayerHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_d2bnc")
+volume_db = 5.0
+
+[node name="EnemyHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_s80ch")
+volume_db = 10.0
+
+[node name="ArrowShoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_agh74")
+
+[node name="SwordSwing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_7ox5q")
+
+[node name="WeaponSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_j6tbb")
+volume_db = -1.0
+
+[node name="WeaponPick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_83xvp")
+volume_db = -1.0
+
+[node name="PlayerDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_mwcsd")
+volume_db = -7.0
+
+[node name="Walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_jfx2q")
+volume_db = 10.0
+
+[node name="EnemyDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_w1mwf")
+volume_db = -1.0
+
+[node name="AxeHitWall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_wqxrn")
+
+[node name="ShieldHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_3fycu")
+
+[node name="HealthRefill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_nt8kd")
+volume_db = -1.0
+
+[node name="AxeThrow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_d5aot")
+
+[node name="Teleport" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_m2k78")
+volume_db = -7.0
+
+[node name="Fireball" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_w3q2l")
+volume_db = 5.0

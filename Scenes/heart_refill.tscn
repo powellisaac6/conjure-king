@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt6dovysk1383"]
+
+[ext_resource type="Script" path="res://Scripts/heart_refill.gd" id="1_hmlgc"]
+[ext_resource type="Texture2D" uid="uid://c2pin8fo71qyj" path="res://UI/Hearts/heart-sprites.png" id="1_qh1d8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nywbe"]
+
+[node name="HeartRefill" type="Node2D"]
+script = ExtResource("1_hmlgc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qh1d8")
+hframes = 2
+
+[node name="RefillBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RefillBox"]
+shape = SubResource("RectangleShape2D_nywbe")

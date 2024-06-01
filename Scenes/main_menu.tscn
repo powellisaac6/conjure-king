@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnjw3kj4ajwti"]
+
+[ext_resource type="Texture2D" uid="uid://co52disw25b3w" path="res://Sprites/Backgrounds/main_menu_background.png" id="1_b07gl"]
+[ext_resource type="Theme" uid="uid://c1a50r6jx1k2k" path="res://Themes/start.tres" id="2_k5vbc"]
+[ext_resource type="Theme" uid="uid://dgtsffh8r2qcu" path="res://Themes/help.tres" id="3_voyr0"]
+[ext_resource type="Theme" uid="uid://botfii5u41o07" path="res://Themes/quit.tres" id="4_bjedy"]
+[ext_resource type="PackedScene" uid="uid://behl4ffww7mv8" path="res://Scenes/help_menu.tscn" id="5_gccem"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.006
+offset_bottom = -0.0800018
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_bottom = 0.990997
+mouse_filter = 2
+texture = ExtResource("1_b07gl")
+expand_mode = 1
+
+[node name="Start" type="Button" parent="Menu"]
+layout_mode = 2
+offset_left = 130.0
+offset_top = 89.0
+offset_right = 183.0
+offset_bottom = 115.0
+theme = ExtResource("2_k5vbc")
+text = "s"
+
+[node name="Help" type="Button" parent="Menu"]
+layout_mode = 2
+offset_left = 131.0
+offset_top = 119.0
+offset_right = 183.0
+offset_bottom = 145.0
+theme = ExtResource("3_voyr0")
+
+[node name="Quit" type="Button" parent="Menu"]
+layout_mode = 2
+offset_left = 131.0
+offset_top = 149.0
+offset_right = 184.0
+offset_bottom = 175.0
+theme = ExtResource("4_bjedy")
+text = "Quit
+"
+
+[node name="HelpMenu" parent="." instance=ExtResource("5_gccem")]
+visible = false
+
+[node name="Back" type="Button" parent="HelpMenu"]
+layout_mode = 2
+offset_left = 259.0
+offset_top = 7.0
+offset_right = 312.0
+offset_bottom = 33.0
+theme = ExtResource("4_bjedy")
+text = "Quit
+"

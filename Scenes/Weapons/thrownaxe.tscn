@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5usmgkdhlbqy"]
+
+[ext_resource type="Script" path="res://Scripts/Weapons/thrownaxe.gd" id="1_itdul"]
+[ext_resource type="Texture2D" uid="uid://c5nbbj1xq58as" path="res://Sprites/Weapons/axe.png" id="2_27i75"]
+[ext_resource type="Script" path="res://Scripts/Weapons/axesprite.gd" id="3_ijlaa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bh27c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7dvl"]
+size = Vector2(16, 14)
+
+[node name="thrownaxe" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_itdul")
+attack_damage = 3.0
+speed = 2.5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_27i75")
+script = ExtResource("3_ijlaa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bh27c")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_e7dvl")

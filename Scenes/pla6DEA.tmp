@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgtsfnjxhedpb"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_oeyfm"]
+[ext_resource type="Texture2D" uid="uid://dr7q4y7prh8ak" path="res://Sprites/large_Poly_CherryRed_2_200U_1471501966.jpg" id="2_3vja2"]
+[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="3_8s2q0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tubpa"]
+size = Vector2(4.5, 4.5)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_oeyfm")
+speed = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("2_3vja2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tubpa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_8s2q0")

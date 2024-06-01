@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://behl4ffww7mv8"]
+
+[ext_resource type="Texture2D" uid="uid://cvko21gf41kpl" path="res://Sprites/Backgrounds/help_background.png" id="1_3gxv1"]
+
+[node name="HelpMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(320, 180)
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+texture = ExtResource("1_3gxv1")
+expand_mode = 1

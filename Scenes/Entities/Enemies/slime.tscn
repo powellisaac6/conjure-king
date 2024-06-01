@@ -1,0 +1,136 @@
+[gd_scene load_steps=11 format=3 uid="uid://dgt6b00n46yii"]
+
+[ext_resource type="Material" uid="uid://bnn6k8rt0b8ke" path="res://Materials/red.tres" id="1_lnkv2"]
+[ext_resource type="Script" path="res://Scripts/Enemies/slime.gd" id="1_utye5"]
+[ext_resource type="Texture2D" uid="uid://iic4654pfvr7" path="res://Sprites/Enemies/slime_sheet.png" id="2_0wj75"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ynfc"]
+radius = 7.07107
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpvug"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gvc1s"]
+radius = 20.0
+
+[sub_resource type="Animation" id="Animation_gecb6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_w0k5q"]
+resource_name = "bounce"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGroup2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_4bqgk"]
+resource_name = "death"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"death_complete"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4o2wj"]
+_data = {
+"RESET": SubResource("Animation_gecb6"),
+"bounce": SubResource("Animation_w0k5q"),
+"death": SubResource("Animation_4bqgk")
+}
+
+[node name="Slime" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_utye5")
+
+[node name="SpriteGroup2D" type="Sprite2D" parent="."]
+material = ExtResource("1_lnkv2")
+
+[node name="Sprite2D" type="Sprite2D" parent="SpriteGroup2D"]
+use_parent_material = true
+position = Vector2(-9.53674e-07, -9.53674e-07)
+texture = ExtResource("2_0wj75")
+hframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_3ynfc")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_xpvug")
+
+[node name="Aggro" type="Area2D" parent="."]
+scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro"]
+shape = SubResource("CircleShape2D_gvc1s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4o2wj")
+}
+
+[node name="RedTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="FlashPause" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="InvincibilityTime" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="KnockbackTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
